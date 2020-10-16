@@ -1,0 +1,250 @@
+body {
+    padding-top: 5rem;
+    font-size: 1rem;
+    color: #e6e6e6;
+    background-color: #050c1f;
+    font-family: 'Oswald', sans-serif;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE and Edge */
+body {
+    -ms-overflow-style: none;
+}
+
+.starter-template {
+    padding: 3rem 1.5rem;
+    text-align: center;
+}
+
+.navbar-dark .navbar-toggler-icon {
+    background-image: url("/dashboard/static/dashboard/images/static/dashboard/images/logo-small.png");
+}
+
+.new_form input[type='number'], input[type='text'], select {
+    float: right;
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #fff;
+    background-color: #050c1f;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 204, 160, 1);
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.new_form input[type="radio"],
+input[type="checkbox"] {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.new_form button {
+    margin: 10px;
+}
+
+.printer_image {
+    object-fit: cover;
+    object-position: center; /* Center the image within the element */
+    width: 100%;
+    max-height: 10rem;
+    margin-bottom: 1rem;
+}
+
+.octicon {
+    display: inline-block;
+    vertical-align: text-bottom;
+    fill: currentColor;
+}
+
+.form-group {
+    margin-right: .7rem;
+    width: 45%;
+}
+
+.bg-top {
+    background-color: #06153f !important;
+}
+
+.bg-dark {
+    background-color: #050c1f !important;
+}
+
+.card {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    min-height: 100%;
+    padding: 1rem;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #050c1f;
+    background-clip: border-box;
+    border: 1px solid #fff;
+    border-radius: .40rem
+}
+
+.light-title {
+    color: #fff;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 0.6px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.light-text {
+    color: #fff;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 0.6px;
+    font-size: 0.9rem;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #fff;
+    background-color: #06153f;
+    border-color: #fff
+}
+
+.nav-tabs .nav-link {
+    border: 1px solid transparent;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+    color: rgba(0, 204, 160, 1)
+}
+
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid rgba(0, 204, 160, 1);
+}
+
+.table td, .table th {
+    border-bottom: 1px solid #545b62
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #fff;
+    background-color: #050c1f;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 204, 160, 1);
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out
+}
+
+
+.form-control::-ms-expand {
+    background-color: transparent;
+    border: 0
+}
+
+.form-control:focus {
+    color: #fff;
+    background-color: #050c1f;
+    border-color: rgba(0, 204, 160, 1);
+    outline: 0;
+    box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .25)
+}
+
+.form-control::-webkit-input-placeholder {
+    color: #6c757d;
+    opacity: 1
+}
+
+.form-control::-moz-placeholder {
+    color: #6c757d;
+    opacity: 1
+}
+
+.form-control:-ms-input-placeholder {
+    color: #6c757d;
+    opacity: 1
+}
+
+.form-control::-ms-input-placeholder {
+    color: #6c757d;
+    opacity: 1
+}
+
+.form-control::placeholder {
+    color: #6c757d;
+    opacity: 1
+}
+
+.form-control:disabled, .form-control[readonly] {
+    background-color: #e9ecef;
+    opacity: 1
+}
+
+select.form-control:not([size]):not([multiple]) {
+    height: calc(2.25rem + 2px)
+}
+
+select.form-control:focus::-ms-value {
+    color: #495057;
+    background-color: #fff
+}
+
+.form-control-file, .form-control-range {
+    display: block;
+    width: 100%
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 10rem;
+    padding: .5rem 0;
+    margin: .125rem 0 0;
+    font-size: 1rem;
+    color: #fff;
+    text-align: left;
+    list-style: none;
+    background-color: #06153f;
+    background-clip: padding-box;
+    border: 1px solid #fff;
+    border-radius: .25rem
+}
+
+.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: .25rem 1.5rem;
+    clear: both;
+    font-weight: 400;
+    color: #fff;
+    text-align: inherit;
+    white-space: nowrap;
+}
+
+
+.modal-content {
+    background-color: #06153f;
+    border: 1px solid #061d5b;
+}
+
+.modal-footer {
+    border-top: 0
+}
