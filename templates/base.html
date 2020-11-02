@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+{% load static %}
+{% load octicons %}
+{% load active %}
+{% load admin_urls %}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="{% static 'dashboard/images/fav_icon.ico' %}">
+
+    <title>Tuck Dock</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'dashboard/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'dashboard/css/style.css' %}" rel="stylesheet">
+    {% block head_tag %} {% endblock %}
+
+    <!-- Custom Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<nav class="navbar navbar-expand navbar-dark bg-top fixed-top">
+    <div class="col-md-3 d-flex justify-content-start">
+        <div class="d-flex d-lg-block">
+            <a class="navbar-brand" href="{% url 'dashboard:documents' %}">Tuck Dock</a>
+        </div>
+    </div>
+    <div class="col-md-6 d-flex justify-content-start">
+        {% if request.user.is_authenticated %}
+            <ul class="navbar-nav">
+                <li class="nav-item {% active '#' %}">
+                    <a class="nav-link" href="{% url 'dashboard:documents' %}">Главная</a>
+                </li>
+                <li class="nav-item {% active '#' %}">
+                    <a class="nav-link" href="{% url 'dashboard:documents' %}">Документы</a>
+                </li>
+                <li class="nav-item {% active '#' %}">
+                    <a class="nav-link" href="{% url 'dashboard:documents' %}">Группы</a>
+                </li>
+                <li class="nav-item {% active '#' %}">
+                    <a class="nav-link" href="{% url 'dashboard:documents' %}">Категории</a>
+                </li>
+            </ul>
+        {% endif %}
+    </div>
+    {% if request.user.is_authenticated %}
+        <div class="col-md-3 d-flex justify-content-end">
+            <div class="nav-item dropdown d-lg-none">
+                <a class="nav-link dropdown-toggle text-light" style="cursor: default"
+                   data-toggle="dropdown">
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="{% url 'dashboard:documents' %}">Профиль</a>
+                    <a class="dropdown-item" href="{% url 'dashboard:documents' %}">Django</a>
+                    <a class="dropdown-item" href="{% url 'auth:logout' %}">Выход</a>
+                </div>
+            </div>
+            <div class="nav-item dropdown d-none d-lg-block">
+                <a class="nav-link dropdown-toggle text-light" style="cursor: default"
+                   data-toggle="dropdown">
+                    <span class="p-3"> {% octicon 'person' width=15 color='#fff' %} </span>
+                    <span>{{ request.user.username }}</span>
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{% url 'dashboard:documents' %}">Профиль</a>
+                    <a class="dropdown-item" href="{% url 'dashboard:documents' %}">Django</a>
+                    <a class="dropdown-item" href="{% url 'auth:logout' %}">Выход</a>
+                </div>
+            </div>
+        </div>
+
+    {% else %}
+
+        <div class="col-md-3 d-inline-flex justify-content-end">
+            <div class="m-1">
+                <a class="btn btn-outline-success" href="{% url 'auth:login' %}">Вход</a>
+            </div>
+            <div class="m-1">
+                <a class="btn btn-outline-info" href="{% url 'auth:signup' %}">Регистрация</a>
+            </div>
+        </div>
+
+    {% endif %}
+</nav>
+
+<main role="main">
+    <div class="min-vh-100">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-9" style="min-height: 30rem;"> {% block content %} {% endblock %}</div>
+            </div>
+        </div>
+    </div>
+</main><!-- /.container -->
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="{% static 'dashboard/js/jquery-3.2.1.slim.min.js' %}"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="{% static 'dashboard/js/jquery-slim.min.js' %}"><\/script>')</script>
+<script src="{% static 'dashboard/js/popper.min.js' %}"></script>
+<script src="{% static 'dashboard/js/bootstrap.min.js' %}"></script>
+</body>
+</html>

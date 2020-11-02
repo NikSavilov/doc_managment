@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col">
+                <h1 class="light-title">Documents</h1>
+                <div class="table border-dark d-inline-block" style="min-height: 25rem">
+                    <table class="w-100">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Имя</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for doc in object_list %}
+                            <tr>
+                                <td>{{ doc.id }}</td>
+                                <td>{{ doc.document.file.name }}</td>
+                                <td>
+                                <div><span class="label label-warning">Warning</span></div>
+
+                                    {% for word, params in doc.get_keywords.items %}
+                                        <span class="label label-default">{{ word }}</span>
+                                    {% endfor %}
+                                </td>
+                                <td>{{ doc.document.file.name }}</td>
+                            </tr>
+                        {% empty %}
+                            <tr><td>No documents yet</td></tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+

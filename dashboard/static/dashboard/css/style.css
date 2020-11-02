@@ -1,6 +1,17 @@
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px #050c1f inset !important;
+}
+
+input:-webkit-autofill {
+    -webkit-text-fill-color: #e6e6e6 !important;
+}
+
 body {
     padding-top: 5rem;
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: #e6e6e6;
     background-color: #050c1f;
     font-family: 'Oswald', sans-serif;
@@ -140,7 +151,8 @@ input[type="checkbox"] {
     display: block;
     width: 100%;
     padding: .375rem .75rem;
-    font-size: 1rem;
+    margin: auto;
+    font-size: 1.2rem;
     line-height: 1.5;
     color: #fff;
     background-color: #050c1f;
@@ -149,7 +161,6 @@ input[type="checkbox"] {
     border-radius: .25rem;
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out
 }
-
 
 .form-control::-ms-expand {
     background-color: transparent;
@@ -247,4 +258,26 @@ select.form-control:focus::-ms-value {
 
 .modal-footer {
     border-top: 0
+}
+
+.qs-button-block {
+    min-height: 400px ;
+}
+
+.qs-button {
+    padding: 2rem;
+    border-radius: 1rem;
+    border-style: none;
+    box-shadow: rgba(89, 129, 179, 0.71) 0 0 15px;
+    background: url('/static/dashboard/images/button_qs.png') 0 0 no-repeat;
+    background-size: cover;
+    transition: 1s;
+    transition-property: all;
+    transition-duration: 1s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+}
+
+.qs-button:hover {
+  transform: scale(1.05);
 }

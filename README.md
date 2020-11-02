@@ -6,9 +6,15 @@
 
 lalala
 
-### Installation
+## Installation
+Firstly, clone the repository. Then:
+```
+cd doc_management
+sudo -s
+```
 
-MySQL 
+### MySQL
+ 
 ```
 sudo yum update
 sudo wget https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm
@@ -27,6 +33,31 @@ Create db, user (remove <set password> by needed one)
 mysql -u root -p
 CREATE DATABASE docmanager;
 CREATE USER 'django'@'localhost' IDENTIFIED BY '<set password>';
+GRANT ALL PRIVILEGES ON docmanager.* TO 'django'@'localhost'
+```
 
+[MySQL Installation Tutorial](https://www.hostinger.ru/rukovodstva/ustanovka-mysql-na-centos-7/)
+
+### Config Django to use MySql 
+
+Create ./secret/MySql.cnf
 
 ```
+[client]
+database = docmanager
+host = localhost
+user = django
+password = <password>
+default-character-set = utf8
+wait_timeout = 28800
+```
+
+### Setting up environment, installing requirements
+
+```
+python3 -m venv venv
+source venv/bin/activate
+sudo yum install python3-devel mysql-devel
+python3 -m pip install -r requirements.txt
+```
+

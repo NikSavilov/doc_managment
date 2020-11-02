@@ -1,3 +1,7 @@
 .idea
 venv
 secret/MySql.cnf
+static
+content
+dashboard/migrations
+media

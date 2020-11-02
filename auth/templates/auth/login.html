@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head_tag %}
+    <link href="{% static 'dashboard/css/signin.css' %}" rel="stylesheet">
+{% endblock head_tag %}
+
+
+{% block content %}
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6">
+                <form class="form-signin" action="{% url 'auth:login' %}" method="post">{% csrf_token %}
+                    <img class="mb-4" src="{% static 'dashboard/images/logo-small2.png' %}" alt="" width="72"
+                         height="72">
+                    <h1 class="h3 mb-3 font-weight-normal">Авторизуйтесь</h1>
+
+                    <label for="inputLogin" class="sr-only">Логин</label>
+                    <input name="username" id="inputLogin"
+                           class="form-control" placeholder="Логин" required autofocus>
+
+                    <label for="inputPassword" class="sr-only">Пароль</label>
+                    <input type="password" name="password" id="inputPassword"
+                           class="form-control" placeholder="Пароль" required>
+
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Войти</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
