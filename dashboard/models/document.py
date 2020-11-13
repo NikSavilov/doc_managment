@@ -11,3 +11,6 @@ class Document(InformationObject):
     file = models.FileField()
     file_url = models.URLField(null=True, blank=True)  # Ссылка для документов хранящихся вне сервиса.
     size = models.IntegerField(null=True, blank=True)  # В байтах
+
+    def __str__(self):
+        return self.filename or self.file.name

@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static %}
+{% load octicons %}
+
+
+
+{% block content %}
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col">
+                <h1 class="my-2 light-title">My groups</h1>
+                <div class="table border-dark d-inline-block" style="min-height: 25rem">
+                    <table class="w-100">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Admin</th>
+                            <th>Link</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for group in object_list %}
+                            <tr>
+                                <td>{{ group.id }}</td>
+                                <td>{{ group.name }}</td>
+                                <td>{{ group.administrator.username }}</td>
+                                <td>
+                                    <div class="container px-2 justify-content-center">
+                                        <div class="row">
+                                            <div class="col-md-10">
+                                                <div class="input-group">
+                                                    <input type="text" value="{{ group.get_invite }}"
+                                                           id="myInput{{ group.id }}">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div>
+                                                    <button class="button btn" onclick="myFunction({{ group.id }})">
+                                                        {% octicon 'clippy' width=20 color="#fff" %}
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% empty %}
+                            <tr>
+                                <td>No groups yet</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+

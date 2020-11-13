@@ -26,7 +26,8 @@ SECRET_KEY = '6$ut%asd2h^zq65pex!)@z)^4asdql6gd6ll&tvb*656ussg2f4p'
 DEBUG = bool(int(os.environ.get("DJANGO_DEBUG") or "0"))
 
 ALLOWED_HOSTS = []
-
+MAIN_HOST = "http://127.0.0.1:8000/"
+INVITE_LINK = MAIN_HOST + 'auth/signup/?uuid={uuid}'
 # Application definition
 
 INSTALLED_APPS = [

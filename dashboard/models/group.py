@@ -2,7 +2,7 @@ import uuid
 
 from django.db import models
 
-from doc_managment.settings import AUTH_USER_MODEL
+from doc_managment.settings import AUTH_USER_MODEL, MAIN_HOST, INVITE_LINK
 
 
 class Group(models.Model):
@@ -12,3 +12,6 @@ class Group(models.Model):
 
     def __str__(self):
         return "{name} ({adm})".format(name=self.name, adm=self.administrator.username)
+
+    def get_invite(self):
+        return INVITE_LINK.format(uuid=self.group_uuid)

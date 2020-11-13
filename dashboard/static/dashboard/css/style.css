@@ -1,7 +1,7 @@
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
-input:-webkit-autofill:active  {
+input:-webkit-autofill:active {
     -webkit-box-shadow: 0 0 0 30px #050c1f inset !important;
 }
 
@@ -261,7 +261,7 @@ select.form-control:focus::-ms-value {
 }
 
 .qs-button-block {
-    min-height: 400px ;
+    min-height: 400px;
 }
 
 .qs-button {
@@ -279,5 +279,14 @@ select.form-control:focus::-ms-value {
 }
 
 .qs-button:hover {
-  transform: scale(1.05);
+    transform: scale(1.05);
+}
+
+.table {
+    color: whitesmoke;
+}
+
+.btn-no-hover {
+    cursor: initial!important;
+    text-decoration: none;
 }

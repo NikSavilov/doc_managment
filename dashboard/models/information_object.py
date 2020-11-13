@@ -25,5 +25,8 @@ class InformationObject(models.Model):
         if keywords.__len__() > limit:
             keywords = keywords[:limit]
         rand_color = randomcolor.RandomColor()
-        k_dict = {key.word: {"color": rand_color.generate()} for key in keywords}
+        k_dict = {key.word: {"color": rand_color.generate(luminosity='light')[0]} for key in keywords}
         return k_dict
+
+    def __str__(self):
+        return str(self.id)
