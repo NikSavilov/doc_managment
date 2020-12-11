@@ -151,6 +151,9 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'dashboard', 'static'),
 ]
 
+LOGIN_URL = '/auth_app/login/'
+LOGIN_REDIRECT_URL = '/dashboard/documents/'
+
 MAIN_PAGE = "dashboard:documents"
 
 SERVICE = None

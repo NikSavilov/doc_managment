@@ -1,6 +1,4 @@
 from django.contrib.auth.decorators import login_required
-from django.db.models import Q
-from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.utils import timezone
 from django.utils.decorators import method_decorator
@@ -11,7 +9,6 @@ from dashboard.filter import DocumentFilter, CategoriesFilter
 from dashboard.forms import NewGroupCategoryForm
 from dashboard.models import Group, InfoObjectCategory, Document, Keyword
 from dashboard.models.category import GroupInfoObjectCategory
-from dashboard.models.information_object import InformationObject
 from doc_managment.settings import MAIN_PAGE
 
 
@@ -26,6 +23,7 @@ def login(request, *args, **kwargs):
     return render(request, "auth/login.html")
 
 
+@login_required
 def qs(request, *args, **kwargs):
     return render(request, "dashboard/intro.html")
 
@@ -49,6 +47,10 @@ class DocumentsListView(FilterView):
     filter_class = DocumentFilter
     paginate_by = 100
 
+    @method_decorator(login_required)
+    def dispatch(self, request, *args, **kwargs):
+        return super(DocumentsListView, self).dispatch(request, *args, **kwargs)
+
     def get_queryset(self):
         new_context = Document.objects.filter(
             connected_group__id__in=[group.id for group in self.request.user.profile.groups.all()]
@@ -59,6 +61,10 @@ class DocumentsListView(FilterView):
 class GroupsListView(ListView):
     model = Group
     paginate_by = 100
+
+    @method_decorator(login_required)
+    def dispatch(self, request, *args, **kwargs):
+        return super(GroupsListView, self).dispatch(request, *args, **kwargs)
 
     def get_queryset(self):
         new_context = self.request.user.profile.groups.all()
