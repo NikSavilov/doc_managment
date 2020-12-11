@@ -21,11 +21,14 @@ class InformationObject(models.Model):
                                  on_delete=models.CASCADE)
 
     def get_keywords(self, limit=3):
-        keywords = list(self.category.keyword_set.all())
-        if keywords.__len__() > limit:
-            keywords = keywords[:limit]
-        rand_color = randomcolor.RandomColor()
-        k_dict = {key.word: {"color": rand_color.generate(luminosity='light')[0]} for key in keywords}
+        category = self.category
+        k_dict = {}
+        if category:
+            keywords = list(category.keyword_set.all())
+            if keywords.__len__() > limit:
+                keywords = keywords[:limit]
+            rand_color = randomcolor.RandomColor()
+            k_dict = {key.word: {"color": rand_color.generate(luminosity='light')[0]} for key in keywords}
         return k_dict
 
     def __str__(self):

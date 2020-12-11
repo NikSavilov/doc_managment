@@ -14,3 +14,6 @@ class Document(InformationObject):
 
     def __str__(self):
         return self.filename or self.file.name
+
+    def get_mb_size(self):
+        return round((self.size or 0) / 1024 / 1024, 1)

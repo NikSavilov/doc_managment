@@ -45,7 +45,7 @@
                     <a class="nav-link" href="{% url 'dashboard:groups' %}">Группы</a>
                 </li>
                 <li class="nav-item {% active '#' %}">
-                    <a class="nav-link" href="{% url 'dashboard:documents' %}">Категории</a>
+                    <a class="nav-link" href="{% url 'dashboard:categories' %}">Категории</a>
                 </li>
             </ul>
         {% endif %}
@@ -56,10 +56,10 @@
                 <a class="nav-link dropdown-toggle text-light" style="cursor: default"
                    data-toggle="dropdown">
                 </a>
-                <div class="dropdown-menu dropdown-menu-right">
+                <div class="dropdown-menu dropdown-menu-right" style="left: -6rem">
                     <a class="dropdown-item" href="{% url 'dashboard:documents' %}">Профиль</a>
                     <a class="dropdown-item" href="{% url 'dashboard:documents' %}">Django</a>
-                    <a class="dropdown-item" href="{% url 'auth:logout' %}">Выход</a>
+                    <a class="dropdown-item" href="{% url 'auth_app:logout' %}">Выход</a>
                 </div>
             </div>
             <div class="nav-item dropdown d-none d-lg-block">
@@ -71,7 +71,7 @@
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="{% url 'dashboard:documents' %}">Профиль</a>
                     <a class="dropdown-item" href="{% url 'dashboard:documents' %}">Django</a>
-                    <a class="dropdown-item" href="{% url 'auth:logout' %}">Выход</a>
+                    <a class="dropdown-item" href="{% url 'auth_app:logout' %}">Выход</a>
                 </div>
             </div>
         </div>
@@ -80,10 +80,10 @@
 
         <div class="col-md-3 d-inline-flex justify-content-end">
             <div class="m-1">
-                <a class="btn btn-outline-success" href="{% url 'auth:login' %}">Вход</a>
+                <a class="btn btn-outline-success" href="{% url 'auth_app:login' %}">Вход</a>
             </div>
             <div class="m-1">
-                <a class="btn btn-outline-info" href="{% url 'auth:signup' %}">Регистрация</a>
+                <a class="btn btn-outline-info" href="{% url 'auth_app:signup' %}">Регистрация</a>
             </div>
         </div>
 
@@ -93,9 +93,7 @@
 <main role="main">
     <div class="min-vh-100">
         <div class="container">
-            <div class="row d-flex justify-content-center">
-                <div class="col-md-9" style="min-height: 30rem;"> {% block content %} {% endblock %}</div>
-            </div>
+            {% block content %} {% endblock %}
         </div>
     </div>
 </main><!-- /.container -->

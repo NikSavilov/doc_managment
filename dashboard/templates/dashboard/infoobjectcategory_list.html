@@ -6,41 +6,69 @@
 
 {% block content %}
     <div class="container">
+        <form action="" method="get">
+            <div class="row d-flex justify-content-center filter-form new_form">
+
+                <div class="col-md-8">
+                    {{ filter.form.as_p }}
+                </div>
+                <div class="col-md-2">
+                    <p></p>
+                    <input type="submit" value="Поиск"/>
+                </div>
+
+                <div class="col-md-2">
+                    <p></p>
+                    <a href="{% url 'dashboard:new_category' %}">
+                        <button class="px-2">
+                            Создать
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </form>
         <div class="row d-flex justify-content-center">
             <div class="col">
-                <h1 class="my-2 light-title">My categories</h1>
+                <h1 class="my-2 light-title">Group Categories</h1>
                 <div class="table border-dark d-inline-block" style="min-height: 25rem">
                     <table class="w-100">
                         <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Title</th>
-                            <th>Documents</th>
+                            <th>Name</th>
+                            <th>Теги</th>
                         </tr>
                         </thead>
                         <tbody>
-                        {% for cat in categories %}
+                        {% for local_categories in full_categories %}
                             <tr>
-                                <td>{{ cat.category.id }}</td>
-                                <td>{{ cat.category.title }}</td>
-                                <td>
-                                    {% for doc in cat.docs %}
-                                        <a class="btn btn-success btn-no-hover" role="button"
-                                           href="{{ doc.document.file.url }}" target="_blank">
-                                            {{ doc.document.file.name }}
-                                        </a>
-                                    {% endfor %}
-                                </td>
-                                <td>
-                                    <div class="container px-2 justify-content-center">
-
+                                <td class="d-inline-flex">
+                                    <div class="mx-2">
+                                        {% octicon 'git-commit' width=20 color="#fff" %}
+                                    </div>
+                                    <div class="mx-2 font-weight-bold">
+                                        {{ local_categories.title }}
                                     </div>
                                 </td>
+                                <td></td>
                             </tr>
-                        {% empty %}
-                            <tr>
-                                <td>No groups yet</td>
-                            </tr>
+                            {% for category in local_categories.categories %}
+                                <tr>
+                                    <td class="table-shift">{{ category.title }}</td>
+                                    <td>
+                                        {% for word, params in category.get_keywords.items %}
+                                            <button class="btn btn-no-hover"
+                                                    style="background-color: {{ params.color }};">
+                                                {{ word }}
+                                            </button>
+                                        {% endfor %}
+                                    </td>
+                                </tr>
+                            {% empty %}
+                                <tr>
+                                    <td class="table-shift font-italic">No categories yet</td>
+                                    <td></td>
+                                </tr>
+                            {% endfor %}
                         {% endfor %}
                         </tbody>
                     </table>

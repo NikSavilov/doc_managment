@@ -10,7 +10,7 @@
     <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="col-md-6">
-                <form class="form-signin" action="{% url 'auth:signup' %}" method="post">{% csrf_token %}
+                <form class="form-signin" action="{% url 'auth_app:signup' %}{{ uuid }}" method="post">{% csrf_token %}
                     <img class="mb-4" src="{% static 'dashboard/images/logo-small2.png' %}" alt="" width="72"
                          height="72">
                     <h1 class="h3 mb-3 font-weight-normal">Зарегистрируйся</h1>

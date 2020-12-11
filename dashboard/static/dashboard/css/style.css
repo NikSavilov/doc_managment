@@ -287,6 +287,48 @@ select.form-control:focus::-ms-value {
 }
 
 .btn-no-hover {
-    cursor: initial!important;
+    cursor: initial !important;
     text-decoration: none;
+    margin-top: 3px;
+}
+
+.filter-form {
+    margin-right: 1rem;
+}
+
+.filter-form p {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.filter-form input {
+    width: 100%;
+}
+
+.filter-form input[type='submit'] {
+    padding: .3rem;
+    margin-top: 1.2rem;
+    color: #fff;
+    background-color: #050c1f;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 204, 160, 1);
+    border-radius: .25rem;
+}
+
+.filter-form button {
+    width: 100%;
+    padding: .3rem;
+    margin-top: 1.2rem;
+    color: #fff;
+    background-color: #050c1f;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 204, 160, 1);
+    border-radius: .25rem;
+}
+
+
+.table-shift {
+    padding-left: 3.4rem !important;
 }

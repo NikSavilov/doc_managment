@@ -1,7 +1,9 @@
 .idea
 venv
 secret/MySql.cnf
+secret/bot_settings.py
 static
 content
 dashboard/migrations
+auth_app/migrations
 media

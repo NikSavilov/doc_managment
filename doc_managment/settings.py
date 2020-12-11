@@ -25,9 +25,9 @@ SECRET_KEY = '6$ut%asd2h^zq65pex!)@z)^4asdql6gd6ll&tvb*656ussg2f4p'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(int(os.environ.get("DJANGO_DEBUG") or "0"))
 
-ALLOWED_HOSTS = []
-MAIN_HOST = "http://127.0.0.1:8000/"
-INVITE_LINK = MAIN_HOST + 'auth/signup/?uuid={uuid}'
+ALLOWED_HOSTS = ['127.0.0.1', '10.78.14.71', "localhost"]
+MAIN_HOST = "http://localhost:8000/"
+INVITE_LINK = MAIN_HOST + 'auth_app/signup/?uuid={uuid}'
 # Application definition
 
 INSTALLED_APPS = [
@@ -39,12 +39,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Third-party
+    'django_filters',
     'octicons',
     'bootstrap4',
     'social_django',
 
     # Internal
-    'dashboard'
+    # 'dashboard',
+    'auth_app',
+    'dashboard.apps.DashboardConfig',
 ]
 
 MIDDLEWARE = [
@@ -64,7 +67,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'templates'),
                  os.path.join(BASE_DIR, 'dashboard', 'templates'),
-                 os.path.join(BASE_DIR, 'auth', 'templates'), ]
+                 os.path.join(BASE_DIR, 'auth_app', 'templates'), ]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -149,4 +152,14 @@ STATICFILES_DIRS = [
 ]
 
 MAIN_PAGE = "dashboard:documents"
-AUTH_USER_MODEL = 'dashboard.MyUser'
+
+SERVICE = None
+BOT_SYSTEM_KEYWORD = "[doc_management]"
+
+INVITE_MESSAGE = BOT_SYSTEM_KEYWORD + " [first_join] TUCKDOCK{uuid}"
+FIRST_BOT_MESSAGE = "Всем привет в {group_name}! Я умею собирать документы и ссылки из чата и классифицировать " \
+                    "их по предметам. " \
+                    "Все вложения можно будет найти на моем сайте. Регистрируемся по ссылке:\n{invite_link}"
+IGNORE_BOT_INVITATION_MESSAGE = "Эта группа уже подключена к системе. Ее администратор: {admin}. " \
+                                "Присоединиться можно по ссылке:\n" \
+                                "{link}"

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+{% load octicons %}
+
+
+{% block content %}
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6 align-self-center">
+                <p class="font-weight-light">Пригласите бота в групповой чат и отправьте слудующее сообщение.</p>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-3">
+                <div class="input-group">
+                    <label for="myInput{{ group.id }}">Link</label>
+                    <input type="text" value="{{ group.get_first_message }}" id="myInput{{ group.id }}">
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div>
+                    <button class="button btn" onclick="myFunction({{ group.id }})">
+                        {% octicon 'clippy' width=20 color="#fff" %}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
