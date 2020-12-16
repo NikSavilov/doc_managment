@@ -34,6 +34,8 @@ mysql -u root -p
 CREATE DATABASE docmanager;
 CREATE USER 'django'@'localhost' IDENTIFIED BY '<set password>';
 GRANT ALL PRIVILEGES ON docmanager.* TO 'django'@'localhost'
+grant all privileges on test_docmanager.* to django@localhost;
+FLUSH PRIVILEGES;
 ```
 
 [MySQL Installation Tutorial](https://www.hostinger.ru/rukovodstva/ustanovka-mysql-na-centos-7/)

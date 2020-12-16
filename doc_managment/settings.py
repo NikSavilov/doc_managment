@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
+import sys
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -90,11 +91,21 @@ WSGI_APPLICATION = 'doc_managment.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'docmanager',
+        'OPTIONS': {
+            'read_default_file': os.path.join(BASE_DIR, 'secret/MySql.cnf'),
+        }
+    },
+    'TEST': {
+        'NAME': 'test_doc_management',
+        'ENGINE': 'django.db.backends.mysql',
         'OPTIONS': {
             'read_default_file': os.path.join(BASE_DIR, 'secret/MySql.cnf'),
         }
     }
 }
+if 'test' in sys.argv:
+    DATABASE_ENGINE = 'sqlite3'
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators

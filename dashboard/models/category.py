@@ -2,6 +2,7 @@ import randomcolor
 from django.db import models
 from model_utils.managers import InheritanceManager
 
+
 class InfoObjectCategory(models.Model):
     """ Категория для информационных объектов """
     objects = InheritanceManager()
