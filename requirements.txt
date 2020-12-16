@@ -17,4 +17,3 @@ arrow
 ntplib
 django-filter==2.4.0
 django-model-utils
-SQLite==3.8.3
