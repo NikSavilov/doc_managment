@@ -1,3 +1,6 @@
+"""
+Я внес изменения чтобы запустить тесты
+"""
 import time
 from threading import Thread
 
