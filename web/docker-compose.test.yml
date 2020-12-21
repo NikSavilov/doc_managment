@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  sut:
+    build: ./web
+    command: python manage.py test
+    volumes:
+      - .:/web_django
+    ports:
+      - '8000:8000'
