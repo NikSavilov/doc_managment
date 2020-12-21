@@ -90,22 +90,11 @@ WSGI_APPLICATION = 'doc_managment.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'docmanager',
-        'OPTIONS': {
-            'read_default_file': os.path.join(BASE_DIR, 'secret/MySql.cnf'),
-        }
-    },
-    'TEST': {
-        'NAME': 'test_doc_management',
-        'ENGINE': 'django.db.backends.mysql',
-        'OPTIONS': {
-            'read_default_file': os.path.join(BASE_DIR, 'secret/MySql.cnf'),
-        }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-if 'test' in sys.argv:
-    DATABASE_ENGINE = 'sqlite3'
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators

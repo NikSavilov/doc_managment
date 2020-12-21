@@ -7,3 +7,8 @@ content
 dashboard/migrations
 auth_app/migrations
 media
+db_django
+db.sqlite3
+web/docker-compose.yml
+*log.txt
+*ts*.txt
